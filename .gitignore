@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production / Builds
+dist/
+.next/
+out/
+build/
+
+# Debug / Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Local Env Files
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+.env.development.local
+.env.staging.local
+.env.production.local
+
+# IDE / System
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
