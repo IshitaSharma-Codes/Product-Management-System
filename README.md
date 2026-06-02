@@ -1,153 +1,254 @@
-# AeroInventory: Enterprise Product Management System
+# 🚀 Product Management System
 
-AeroInventory is a complete, production-ready full-stack Product Management System designed with granular Role-Based Access Control (RBAC), secure JWT token rotations, real-time analytics aggregation, and a stunning dark-mode-first Next.js 15 UI.
+### Secure • Scalable • Full-Stack Inventory Management Platform
 
----
+Built with **Next.js**, **Node.js**, **Express.js**, **MongoDB**, **Redis**, and **JWT Authentication**
 
-## 🚀 Tech Stack
-
-### Backend
-* **Runtime**: Node.js & Express.js
-* **Database**: MongoDB & Mongoose
-* **Caching**: Redis Cache integration (safe fallback if Redis is offline)
-* **API Documentation**: Swagger UI Express
-* **Security & Loggers**: Helmet security headers, CORS, Express Validator, Morgan, and Winston Logger
-* **Authentication**: JWT Access Token (15m expiry) + Refresh Token (7d rotation)
-
-### Frontend
-* **Core**: Next.js 15+ (App Router, JavaScript)
-* **Styling**: Tailwind CSS v4.0 (class-based toggles with smooth transition times)
-* **State & Forms**: Context API, React Hook Form, Zod validation resolver
-* **Toasts & Icons**: React Hot Toast & Lucide React
+### 🔗 Features • 🔒 Security • 📊 Analytics • ⚡ Performance
 
 ---
 
-## 📂 Project Architecture
+# 📖 Overview
+
+The Product Management System is a full-stack web application designed to demonstrate modern backend development practices including authentication, authorization, REST API development, database management, caching, security, and frontend integration.
+
+The application allows administrators to manage products while regular users can browse and view product information through a secure role-based access control system.
+
+---
+
+# ✨ Key Features
+
+## 🔐 Authentication & Authorization
+
+* User Registration
+* User Login
+* JWT Access Token Authentication
+* Refresh Token Support
+* Password Hashing with bcrypt
+* Protected Routes
+* Session Management
+* Role-Based Access Control (RBAC)
+
+### Roles
+
+| Role     | Permissions               |
+| -------- | ------------------------- |
+| 👑 Admin | Full Product Management   |
+| 👤 User  | View Products & Dashboard |
+
+---
+
+## 📦 Product Management
+
+Complete CRUD functionality for products:
+
+✅ Create Product
+
+✅ View Products
+
+✅ Update Product
+
+✅ Delete Product
+
+✅ Product Details Page
+
+✅ Product Image Upload
+
+✅ Search Products
+
+✅ Product Filtering
+
+✅ Sorting & Pagination
+
+---
+
+## 📊 Dashboard Analytics
+
+The dashboard provides useful inventory insights:
+
+* Total Products
+* Total Stock Available
+* Inventory Value
+* Category Distribution
+* Product Statistics
+* Real-Time Metrics
+
+---
+
+## ⚡ Performance Optimizations
+
+* Redis Caching
+* API Response Optimization
+* Lazy Loading
+* Optimized Database Queries
+* Server-side Pagination
+
+---
+
+## 🛡️ Security Features
+
+* JWT Authentication
+* Refresh Token Rotation
+* Password Encryption
+* Input Validation
+* Request Sanitization
+* Role-Based Middleware
+* Rate Limiting
+* Helmet Security Headers
+* CORS Protection
+* Centralized Error Handling
+
+---
+
+# 🏗️ System Architecture
 
 ```text
-Product-Management-system/
-│
-├── backend/                  # Node.js + Express API
-│   ├── src/
-│   │   ├── config/           # DB & Redis connection helpers
-│   │   ├── controllers/      # Register, Login, Products CRUD, Analytics
-│   │   ├── models/           # User & Product Schema definitions
-│   │   ├── middleware/       # Auth validators, RBAC guards, global error handler
-│   │   ├── routes/           # Routing structures
-│   │   ├── validators/       # Request body sanitizers (express-validator)
-│   │   ├── utils/            # Winston logger config
-│   │   └── docs/             # Swagger OpenAPI definition
-│   ├── server.js             # API entrypoint
-│   └── Dockerfile
-│
-├── frontend/                 # Next.js 15 App Router
-│   ├── src/
-│   │   ├── app/              # App router layouts and pages
-│   │   ├── components/       # Navbars, Sidebars, ThemeToggles
-│   │   ├── context/          # Auth Context provider & sessions
-│   │   ├── services/         # Axios interceptor configs
-│   │   └── hooks/            # Hooks placeholders
-│   ├── public/               # Static assets
-│   └── Dockerfile
-│
-├── docker-compose.yml        # Multi-container orchestrator
-└── Product-Management-System.postman_collection.json # API Postman collection
+Client (Next.js)
+      │
+      ▼
+Express REST API
+      │
+ ┌────┴────┐
+ ▼         ▼
+MongoDB   Redis
+(Database) (Cache)
 ```
 
 ---
 
-## ⚡ Installation & Getting Started
+# 🛠️ Tech Stack
 
-AeroInventory can be launched either in containerized Docker environments or directly on your local system.
+## Frontend
 
-### Option A: Quick Docker Compose Run (Recommended)
-This spins up MongoDB, Redis, the Node Backend, and the Next.js Frontend in a unified network.
-
-1. Ensure Docker Desktop is installed and running on your system.
-2. In the root directory, run:
-   ```bash
-   docker-compose up --build
-   ```
-3. Once completed:
-   * **Next.js Frontend**: [http://localhost:3000](http://localhost:3000)
-   * **Express Backend**: [http://localhost:5000](http://localhost:5000)
-   * **Swagger API Docs**: [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+| Technology      | Purpose         |
+| --------------- | --------------- |
+| Next.js         | React Framework |
+| React.js        | UI Development  |
+| Tailwind CSS    | Styling         |
+| Axios           | API Requests    |
+| React Hook Form | Form Handling   |
+| Zod             | Validation      |
+| React Hot Toast | Notifications   |
 
 ---
 
-### Option B: Local Development Run (Manual)
+## Backend
 
-#### 1. Backend Setup
-1. Open a terminal and navigate to the backend:
-   ```bash
-   cd backend
-   ```
-2. Install packages:
-   ```bash
-   npm install
-   ```
-3. Verify your `.env` settings (default configuration connects to a local MongoDB at `mongodb://127.0.0.1:27017/product-management`).
-4. Boot the server in development hot-reload mode:
-   ```bash
-   npm run dev
-   ```
-
-#### 2. Frontend Setup
-1. Open a separate terminal and navigate to the frontend:
-   ```bash
-   cd frontend
-   ```
-2. Install packages:
-   ```bash
-   npm install
-   ```
-3. Start the Next.js development server:
-   ```bash
-   npm run dev
-   ```
-4. Access the portal at [http://localhost:3000](http://localhost:3000).
+| Technology | Purpose             |
+| ---------- | ------------------- |
+| Node.js    | Runtime Environment |
+| Express.js | REST API            |
+| MongoDB    | Database            |
+| Mongoose   | ODM                 |
+| JWT        | Authentication      |
+| bcryptjs   | Password Hashing    |
+| Redis      | Caching             |
+| Multer     | Image Upload        |
+| Swagger    | API Documentation   |
+| Winston    | Logging             |
 
 ---
 
-## 🔑 Authentication & RBAC
+# 📁 Project Structure
 
-The system enforces two roles:
-1. **Admin**: Can create products, read products, edit specs, delete items, upload custom product images, and review dashboard analytics.
-2. **User**: Can view the dashboard analytics cards, read products in the inventory catalog, and inspect details. User roles are blocked from performing create, update, delete, or image upload commands.
-
-### Admin Account Seeding (Bootstrap)
-* To make testing seamless, the system automatically checks if the database is empty when registering a user.
-* **The very first user registered in the system is automatically assigned the `admin` role.**
-* Subsequent user registrations default to the `user` role.
+```text
+Product-Management-System
+│
+├── backend
+│   ├── src
+│   │   ├── config
+│   │   ├── controllers
+│   │   ├── middleware
+│   │   ├── models
+│   │   ├── routes
+│   │   ├── validators
+│   │   ├── docs
+│   │   └── utils
+│   │
+│   └── server.js
+│
+├── frontend
+│   ├── src
+│   │   ├── app
+│   │   ├── components
+│   │   ├── services
+│   │   ├── hooks
+│   │   ├── context
+│   │   └── utils
+│
+└── docker-compose.yml
+```
 
 ---
 
-## 🛠️ API Routes Listing
+# 📖 API Documentation
 
-### Authentication
-* `POST /api/v1/auth/register` - Create account (Email uniqueness checked).
-* `POST /api/v1/auth/login` - Authenticate credentials, returns access & refresh tokens.
-* `POST /api/v1/auth/refresh` - Rotates refresh tokens and issues fresh access tokens.
-* `GET /api/v1/auth/profile` - Retrieves user profile (Private: JWT header required).
+Interactive Swagger documentation:
 
-### Products
-* `GET /api/v1/products` - Public catalog search, sorting, filtering, and pagination.
-* `GET /api/v1/products/:id` - Fetch item specs (cached in Redis).
-* `GET /api/v1/products/dashboard/analytics` - Computes total items, valuations, and category count (Private).
-* `POST /api/v1/products` - Register a new product (Admin Only).
-* `PUT /api/v1/products/:id` - Modify specs (Admin Only, invalidates caches).
-* `DELETE /api/v1/products/:id` - Remove item (Admin Only, invalidates caches).
-* `POST /api/v1/products/upload` - Upload image file using Multer (Admin Only).
+```text
+http://localhost:5000/api-docs
+```
+
+Features:
+
+* Test APIs directly
+* Request/Response Examples
+* Authorization Support
+* Endpoint Documentation
 
 ---
 
-## 🔍 API Testing Guidelines
+# 🧪 Testing
 
-### Swagger Documentation
-Visit [http://localhost:5000/api-docs](http://localhost:5000/api-docs) in your browser. You can click the **Authorize** button, paste your JWT `accessToken` in the format: `Bearer <token>`, and run test queries directly inside the browser.
+The repository includes:
 
-### Postman Collection
-Import `Product-Management-System.postman_collection.json` into Postman.
-1. Run **Register User** to set up your account.
-2. Run **Login User**. Postman will automatically capture your `accessToken` and `refreshToken` and save them into collection variables.
-3. Subsequent requests (like **Create Product (Admin)** or **Get User Profile**) will automatically attach the correct authorization headers.
+* Swagger Documentation
+* Postman Collection
+* Protected Route Testing
+* Authentication Testing
+* CRUD Operation Testing
+
+---
+
+# 🌟 Future Enhancements
+
+* Docker Deployment
+* CI/CD Pipeline
+* Email Verification
+* Password Reset System
+* Cloudinary Image Upload
+* Order Management Module
+* Microservices Architecture
+* Advanced Analytics Dashboard
+
+---
+
+# 🎯 Skills Demonstrated
+
+This project showcases:
+
+* REST API Development
+* JWT Authentication
+* Role-Based Access Control
+* MongoDB Database Design
+* Backend Security Practices
+* API Documentation
+* Redis Caching
+* Full-Stack Development
+* Scalable Project Architecture
+
+---
+
+## 👩‍💻 Developed By
+
+### Ishita Sharma
+
+Backend Developer Internship Assignment
+
+⭐ If you found this project useful, consider giving it a star!
+
+---
+
+## 📄 License
+
+Licensed under the MIT License.
